@@ -1,0 +1,71 @@
+# Contributing to Lily Frontend
+
+Thanks for helping build Lily Protocol.
+
+## Local setup
+
+- Use Node.js 22 or newer.
+- Install dependencies with `npm install`.
+- Run `npm run dev` for local work.
+- Run `npm run check` before opening a pull request.
+
+## Project shape
+
+- Keep route files in `src/app` focused on composition and metadata.
+- Move reusable UI into `src/components`.
+- Keep feature-specific composition in `src/features`.
+- Put shared typed configuration in `src/config` and content/data in `src/content`.
+- Preserve TypeScript strictness and avoid `any` unless there is a clear reason.
+
+## Development workflow
+
+1. Create a branch for your work.
+2. Link the work to an issue when possible. If a task does not exist yet, open one with the closest template.
+3. Keep the change scoped to a single concern where practical.
+4. Update docs when behavior, contributor workflow, or repo expectations change.
+5. Validate the branch locally before asking for review.
+
+## Validation checklist
+
+Run these commands before opening a pull request:
+
+```bash
+npm run lint
+npm run typecheck
+npm run test:run
+npm run build
+npm run check
+```
+
+`npm run check` is the fastest way to mirror CI end-to-end.
+
+## Pull requests
+
+- Explain the problem being solved, not only the code that changed.
+- Link the related issue and list the main changes clearly.
+- Include screenshots or recordings for UI changes.
+- Call out risks, tradeoffs, and follow-up work intentionally left out.
+- Make sure the PR template is filled out completely so reviewers have enough context.
+
+## Engineering expectations
+
+- Prefer server components unless client interactivity is required.
+- Keep business logic and presentation modular so future contributors can extend features without rewriting route files.
+- Add or update tests when you change reusable behavior, rendering logic, or project configuration.
+- Use typed imports, consistent naming, and small focused components over large catch-all files.
+
+## Issues and contributor tasks
+
+- Use the bug report template for regressions and broken behavior.
+- Use the feature request template for roadmap or product ideas.
+- Use the contributor task template to define scoped implementation work that external contributors can pick up quickly.
+
+## Reviews
+
+- Reviewers will prioritize correctness, maintainability, and contributor clarity.
+- Small PRs move faster than wide refactors, so prefer incremental improvements when possible.
+- If a decision has non-obvious tradeoffs, document it in the PR instead of relying on review comments to provide context.
+
+## Reporting issues
+
+Use the GitHub issue templates for bugs, features, and contributor-scoped tasks. Reproduction steps, expected behavior, acceptance criteria, and screenshots help us move faster.
