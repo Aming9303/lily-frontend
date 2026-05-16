@@ -1,0 +1,36 @@
+name: Contributor task
+description: Define a scoped task that community contributors can pick up
+title: "[Task]: "
+labels:
+  - contributor-friendly
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Expected outcome
+      description: Describe the shipped result we want from this task.
+    validations:
+      required: true
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Suggested implementation notes
+      description: Share architecture hints, relevant files, or constraints that will help a contributor move quickly.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: List the conditions that should be true before the task is considered complete.
+      placeholder: |
+        - UI behaves correctly on mobile and desktop
+        - `npm run check` passes
+        - Docs updated if contributor workflow changes
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: Related context
+      description: Link design references, upstream issues, protocol docs, or related repositories if helpful.

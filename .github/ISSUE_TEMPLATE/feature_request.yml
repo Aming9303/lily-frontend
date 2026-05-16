@@ -1,0 +1,25 @@
+name: Feature request
+description: Propose an improvement to the Lily frontend
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: What user, contributor, or protocol problem are we trying to address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach
+      description: Share the rough product or implementation direction.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Extra notes
+      description: Dependencies, design references, backend considerations, or related repos.
