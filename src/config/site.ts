@@ -1,33 +1,36 @@
 import type { Metadata } from "next";
 
-import type { SitePage, SiteRoute } from "@/types/site";
+import { staticSitePages } from "@/config/routes";
+
+import type { SitePage, StaticSiteRoute } from "@/types/site";
 
 export const routes = {
   home: "/",
-  contribute: "/contribute",
-} as const satisfies Record<string, SiteRoute>;
+  about: "/about",
+  docs: "/docs",
+  status: "/status",
+  signin: "/signin",
+  dashboard: "/app",
+} as const satisfies Record<string, StaticSiteRoute>;
 
 export const siteConfig = {
   name: "Lily Protocol",
   shortName: "Lily",
   description:
-    "Autonomous agent finance infrastructure on Stellar for programmable wallets, real-time USDC payments, and machine-to-machine settlement.",
-  tagline: "The financial layer for autonomous software agents on Stellar.",
+    "Contributor-ready frontend foundation for Lily Protocol, designed for issue-driven UI and product development.",
+  tagline:
+    "A stable Next.js frontend foundation for issue-driven open source contribution.",
   url: "https://lilyprotocol.dev",
   keywords: [
     "Stellar",
-    "Soroban",
-    "USDC",
-    "AI agents",
-    "autonomous payments",
-    "agent finance",
-    "web3",
+    "frontend",
+    "Next.js",
+    "TypeScript",
+    "contributors",
     "open source",
+    "web3",
   ],
-  pages: [
-    { path: routes.home, priority: 1 },
-    { path: routes.contribute, priority: 0.8 },
-  ] as const satisfies readonly SitePage[],
+  pages: staticSitePages as readonly SitePage[],
 } as const;
 
 export function createSiteMetadata(): Metadata {
@@ -55,7 +58,7 @@ export function createSiteMetadata(): Metadata {
   };
 }
 
-export function getAbsoluteUrl(path: SiteRoute): string {
+export function getAbsoluteUrl(path: StaticSiteRoute): string {
   if (path === routes.home) {
     return siteConfig.url;
   }

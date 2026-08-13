@@ -12,18 +12,21 @@ Thanks for helping build Lily Protocol.
 ## Project shape
 
 - Keep route files in `src/app` focused on composition and metadata.
-- Move reusable UI into `src/components`.
-- Keep feature-specific composition in `src/features`.
-- Put shared typed configuration in `src/config` and content/data in `src/content`.
+- Put reusable route-shell primitives in `src/components/scaffold`.
+- Put shared scaffold helpers in `src/features/scaffold`.
+- Put shared typed configuration in `src/config`.
 - Preserve TypeScript strictness and avoid `any` unless there is a clear reason.
+- Treat the default UI as a placeholder shell. New product UI should come from tracked issues and approved Figma work.
 
 ## Development workflow
 
 1. Create a branch for your work.
 2. Link the work to an issue when possible. If a task does not exist yet, open one with the closest template.
 3. Keep the change scoped to a single concern where practical.
-4. Update docs when behavior, contributor workflow, or repo expectations change.
-5. Validate the branch locally before asking for review.
+4. Avoid speculative UI or product flows that are not requested by the issue.
+5. Build from the approved Figma scope for that route or section, not from removed placeholder content.
+6. Update docs when behavior, contributor workflow, or repo expectations change.
+7. Validate the branch locally before asking for review.
 
 ## Validation checklist
 
@@ -50,9 +53,10 @@ npm run check
 ## Engineering expectations
 
 - Prefer server components unless client interactivity is required.
-- Keep business logic and presentation modular so future contributors can extend features without rewriting route files.
+- Keep business logic and presentation modular so future contributors can extend issue-sized features without rewriting route files.
 - Add or update tests when you change reusable behavior, rendering logic, or project configuration.
 - Use typed imports, consistent naming, and small focused components over large catch-all files.
+- If a route is still scaffolded, preserve the scaffold clarity while implementing only the issue scope you were assigned.
 
 ## Issues and contributor tasks
 

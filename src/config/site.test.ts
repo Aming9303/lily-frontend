@@ -14,8 +14,8 @@ describe("site config", () => {
 
   it("builds absolute page urls from typed routes", () => {
     expect(getAbsoluteUrl(routes.home)).toBe(siteConfig.url);
-    expect(getAbsoluteUrl(routes.contribute)).toBe(
-      `${siteConfig.url}${routes.contribute}`,
+    expect(getAbsoluteUrl(routes.docs)).toBe(
+      `${siteConfig.url}${routes.docs}`,
     );
   });
 });
