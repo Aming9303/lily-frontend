@@ -11,6 +11,9 @@ Contributor-ready frontend foundation for Lily Protocol. This repository is inte
 ![Docker](https://img.shields.io/badge/Docker-Planned-2496ED?logo=docker&logoColor=white)
 ![License](https://img.shields.io/badge/License-Private-5B5B5B)
 
+**Website:** [agent-lily.online](https://www.agent-lily.online)  
+**Design:** [Figma — Lily Protocol](https://www.figma.com/design/GRBeDGDHzCGXefm3xmlbHF/Lily-Protocol?node-id=0-1&t=SiCYBGotCg7HcXhe-1)
+
 ## Stack
 
 - Next.js 16 App Router
@@ -29,7 +32,7 @@ Contributor-ready frontend foundation for Lily Protocol. This repository is inte
 - Shared layout scaffolds for marketing, auth, support, and dashboard surfaces
 - Route-level scaffold pages for planned product and public screens
 
-The main dashboard, landing experience, and protocol-facing UI should be introduced through issues rather than prebuilt in the base branch. This repository should feel ready to implement from Figma, not already finished.
+The main dashboard, landing experience, and protocol-facing UI should be introduced through issues rather than prebuilt in the base branch. This repository should feel ready to implement from [Figma](https://www.figma.com/design/GRBeDGDHzCGXefm3xmlbHF/Lily-Protocol?node-id=0-1&t=SiCYBGotCg7HcXhe-1), not already finished.
 
 ## Local development
 
