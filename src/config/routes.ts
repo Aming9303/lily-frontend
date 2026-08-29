@@ -5,6 +5,8 @@ import type {
   StaticSiteRoute,
 } from "@/types/site";
 
+export const defaultSitemapUpdatedAt = "2026-08-25";
+
 export const sectionDefinitions: readonly SectionDefinition[] = [
   {
     key: "marketing",
@@ -47,6 +49,7 @@ export const routeScaffolds = [
       "CTA strategy, empty states, and footer content",
     ],
     includeInSitemap: true,
+    updatedAt: "2026-08-25",
   },
   {
     id: "about",
@@ -377,6 +380,7 @@ export const staticSitePages = routeScaffolds
   .map((route) => ({
     path: route.path as StaticSiteRoute,
     priority: route.path === "/" ? 1 : 0.8,
+    updatedAt: "updatedAt" in route ? route.updatedAt : undefined,
   })) as readonly SitePage[];
 
 export function getRouteScaffold(routeId: RouteScaffold["id"]): RouteScaffold {

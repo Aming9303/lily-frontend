@@ -117,3 +117,5 @@ GitHub Actions runs linting, type-checking, tests with coverage, and production 
 ## Notes
 
 This repo uses the `src/` directory convention supported by Next.js 16. Keep App Router routes under `src/app`, route metadata in `src/config`, and reusable scaffold boundaries under `src/components/scaffold` and `src/features/scaffold`.
+
+Sitemap modification dates come from each route's optional `updatedAt` value in `src/config/routes.ts`. Bump that date when the route's published content changes; routes without a specific date use the documented `defaultSitemapUpdatedAt` fallback.
