@@ -33,7 +33,15 @@ export const siteConfig = {
   pages: staticSitePages as readonly SitePage[],
 } as const;
 
-export function createSiteMetadata(): Metadata {
+type SiteMetadataOptions = {
+  canonical?: string;
+};
+
+export function createSiteMetadata(
+  options: SiteMetadataOptions = {},
+): Metadata {
+  const canonical = options.canonical ?? siteConfig.url;
+
   return {
     metadataBase: new URL(siteConfig.url),
     title: {
@@ -43,6 +51,9 @@ export function createSiteMetadata(): Metadata {
     description: siteConfig.description,
     applicationName: siteConfig.name,
     keywords: [...siteConfig.keywords],
+    alternates: {
+      canonical,
+    },
     openGraph: {
       title: siteConfig.name,
       description: siteConfig.tagline,
@@ -56,6 +67,10 @@ export function createSiteMetadata(): Metadata {
       description: siteConfig.tagline,
     },
   };
+}
+
+export function createPageMetadata(path: StaticSiteRoute): Metadata {
+  return createSiteMetadata({ canonical: getAbsoluteUrl(path) });
 }
 
 export function getAbsoluteUrl(path: StaticSiteRoute): string {
