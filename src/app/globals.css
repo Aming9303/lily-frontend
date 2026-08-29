@@ -9,6 +9,25 @@
   --color-line: #d1d5db;
   --color-accent: #0f766e;
   --shadow-soft: 0 16px 40px rgba(17, 24, 39, 0.06);
+  --layout-container-max: 72rem;
+  --layout-gutter: 1rem;
+  --radius-sm: 1rem;
+  --radius-md: 1.5rem;
+  --radius-lg: 1.75rem;
+  --radius-xl: 2rem;
+  --spacing-section: 2rem;
+}
+
+@media (min-width: 40rem) {
+  :root {
+    --layout-gutter: 1.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --layout-gutter: 2rem;
+  }
 }
 
 @theme inline {

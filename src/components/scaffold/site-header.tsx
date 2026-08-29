@@ -6,7 +6,7 @@ import { routes, siteConfig } from "@/config/site";
 export function SiteHeader() {
   return (
     <header className="border-b border-[var(--color-line)] bg-white/90">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex w-full max-w-[var(--layout-container-max)] items-center justify-between gap-4 px-[var(--layout-gutter)] py-4">
         <div>
           <Link
             className="text-lg font-semibold tracking-tight"

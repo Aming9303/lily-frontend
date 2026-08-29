@@ -19,9 +19,9 @@ export function SectionLayout({
   return (
     <>
       <SiteHeader />
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-8 sm:px-6 lg:px-8 lg:flex-row">
+      <div className="mx-auto flex w-full max-w-[var(--layout-container-max)] flex-col gap-[var(--spacing-section)] px-[var(--layout-gutter)] py-[var(--spacing-section)] lg:flex-row">
         <aside className="lg:w-80 lg:flex-none">
-          <div className="surface rounded-[1.5rem] p-6">
+          <div className="surface rounded-[var(--radius-md)] p-6">
             <p className="eyebrow text-[var(--color-accent)]">{title}</p>
             <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
               {description}
