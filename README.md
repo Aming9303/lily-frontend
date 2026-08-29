@@ -117,3 +117,5 @@ GitHub Actions runs linting, type-checking, tests with coverage, and production 
 ## Notes
 
 This repo uses the `src/` directory convention supported by Next.js 16. Keep App Router routes under `src/app`, route metadata in `src/config`, and reusable scaffold boundaries under `src/components/scaffold` and `src/features/scaffold`.
+
+Smooth scrolling is enabled only when the user's system does not request reduced motion. Keep motion-related styles behind the appropriate `prefers-reduced-motion` media query so accessibility preferences remain effective.
