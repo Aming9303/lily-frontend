@@ -3,9 +3,14 @@ import type { RouteScaffold } from "@/types/site";
 type PageScaffoldProps = {
   readonly route: RouteScaffold;
   readonly dynamicLabel?: string;
+  readonly statusMessage?: string;
 };
 
-export function PageScaffold({ route, dynamicLabel }: PageScaffoldProps) {
+export function PageScaffold({
+  route,
+  dynamicLabel,
+  statusMessage,
+}: PageScaffoldProps) {
   return (
     <main className="surface rounded-[1.75rem] p-8 sm:p-10">
       <p className="eyebrow text-[var(--color-accent)]">{route.section}</p>
@@ -20,6 +25,17 @@ export function PageScaffold({ route, dynamicLabel }: PageScaffoldProps) {
           {dynamicLabel ?? route.path}
         </div>
       </div>
+
+      {statusMessage ? (
+        <p
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          className="mt-6 rounded-2xl border border-[var(--color-line)] bg-[var(--color-panel-muted)] px-4 py-3 text-sm text-[var(--color-muted)]"
+        >
+          {statusMessage}
+        </p>
+      ) : null}
 
       <section className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
         <article className="rounded-[1.5rem] border border-[var(--color-line)] bg-[var(--color-panel-muted)] p-6">

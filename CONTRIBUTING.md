@@ -58,6 +58,13 @@ npm run check
 - Use typed imports, consistent naming, and small focused components over large catch-all files.
 - If a route is still scaffolded, preserve the scaffold clarity while implementing only the issue scope you were assigned.
 
+### Async status announcements
+
+- Pass loading, empty, and completion messages through the `PageScaffold`
+  `statusMessage` prop so assistive technology receives polite announcements.
+- Do not render an empty live region before a page has a meaningful status to
+  announce.
+
 ## Issues and contributor tasks
 
 - Use the bug report template for regressions and broken behavior.

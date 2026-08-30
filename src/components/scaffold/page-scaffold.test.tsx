@@ -15,5 +15,19 @@ describe("PageScaffold", () => {
     expect(
       screen.getByText(/contributors should implement the real experience from the approved figma design/i),
     ).toBeInTheDocument();
+    expect(screen.queryByRole("status")).not.toBeInTheDocument();
+  });
+
+  it("announces a provided status message politely", () => {
+    render(
+      <PageScaffold
+        route={getRouteScaffold("agents")}
+        statusMessage="Loading agents..."
+      />,
+    );
+
+    expect(screen.getByRole("status")).toHaveTextContent("Loading agents...");
+    expect(screen.getByRole("status")).toHaveAttribute("aria-live", "polite");
+    expect(screen.getByRole("status")).toHaveAttribute("aria-atomic", "true");
   });
 });
