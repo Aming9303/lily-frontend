@@ -18,6 +18,12 @@ export function SectionLayout({
 }: SectionLayoutProps) {
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-[var(--color-ink)] focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-white focus:shadow-[var(--shadow-soft)]"
+      >
+        Skip to main content
+      </a>
       <SiteHeader />
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-8 sm:px-6 lg:px-8 lg:flex-row">
         <aside className="lg:w-80 lg:flex-none">
@@ -31,7 +37,9 @@ export function SectionLayout({
             </div>
           </div>
         </aside>
-        <div className="min-w-0 flex-1">{children}</div>
+        <main id="main-content" tabIndex={-1} className="min-w-0 flex-1">
+          {children}
+        </main>
       </div>
     </>
   );
