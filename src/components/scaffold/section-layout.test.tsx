@@ -11,6 +11,7 @@ describe("SectionLayout", () => {
         title="Public marketing"
         description="Public-facing route group."
         routes={getSectionRoutes("marketing")}
+        navLabel="Marketing pages"
       >
         <div>Section content</div>
       </SectionLayout>,
@@ -26,6 +27,9 @@ describe("SectionLayout", () => {
     expect(
       screen.getByRole("link", { name: /landing page/i }),
     ).toHaveAttribute("href", "/");
+    expect(
+      screen.getByRole("navigation", { name: "Marketing pages" }),
+    ).toBeInTheDocument();
     expect(screen.getByText("Section content")).toBeInTheDocument();
   });
 
@@ -41,5 +45,8 @@ describe("SectionLayout", () => {
     );
 
     expect(screen.getByText("/app/agents/[id]")).toBeInTheDocument();
+    expect(
+      screen.getByRole("navigation", { name: "Section routes" }),
+    ).toBeInTheDocument();
   });
 });

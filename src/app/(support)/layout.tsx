@@ -23,6 +23,7 @@ export default function SupportLayout({
       title="Docs, status, and legal"
       description={`${docsSection.description} ${legalSection.description}`}
       routes={supportRoutes}
+      navLabel="Support and legal pages"
     >
       {children}
     </SectionLayout>

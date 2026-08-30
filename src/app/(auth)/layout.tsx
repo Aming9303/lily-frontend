@@ -17,6 +17,7 @@ export default function AuthLayout({
       title={authSection.label}
       description={authSection.description}
       routes={getSectionRoutes("auth")}
+      navLabel="Authentication pages"
     >
       {children}
     </SectionLayout>

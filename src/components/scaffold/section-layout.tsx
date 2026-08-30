@@ -7,6 +7,7 @@ type SectionLayoutProps = {
   readonly title: string;
   readonly description: string;
   readonly routes: readonly RouteScaffold[];
+  readonly navLabel?: string;
   readonly children: React.ReactNode;
 };
 
@@ -14,6 +15,7 @@ export function SectionLayout({
   title,
   description,
   routes,
+  navLabel,
   children,
 }: SectionLayoutProps) {
   return (
@@ -27,7 +29,10 @@ export function SectionLayout({
               {description}
             </p>
             <div className="mt-6">
-              <SectionNav routes={routes} />
+              <SectionNav
+                routes={routes}
+                ariaLabel={navLabel ?? "Section routes"}
+              />
             </div>
           </div>
         </aside>

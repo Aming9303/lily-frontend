@@ -19,6 +19,7 @@ export default function MarketingLayout({
       title={marketingSection.label}
       description={marketingSection.description}
       routes={getSectionRoutes("marketing")}
+      navLabel="Marketing pages"
     >
       {children}
     </SectionLayout>

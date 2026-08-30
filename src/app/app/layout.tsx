@@ -19,6 +19,7 @@ export default function DashboardLayout({
       title={dashboardSection.label}
       description={dashboardSection.description}
       routes={getSectionRoutes("dashboard")}
+      navLabel="Dashboard sections"
     >
       {children}
     </SectionLayout>
