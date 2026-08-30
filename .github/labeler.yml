@@ -1,0 +1,29 @@
+config:
+  - changed-files:
+      - any-glob-to-any-file: src/config/**
+
+components:
+  - changed-files:
+      - any-glob-to-any-file: src/components/**
+
+features:
+  - changed-files:
+      - any-glob-to-any-file: src/features/**
+
+tests:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.test.{js,jsx,ts,tsx}"
+          - "**/*.spec.{js,jsx,ts,tsx}"
+          - src/test/**
+          - vitest.config.ts
+
+ci:
+  - changed-files:
+      - any-glob-to-any-file: .github/**
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - docs/**
+          - "**/*.md"
