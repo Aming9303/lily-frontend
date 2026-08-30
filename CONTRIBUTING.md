@@ -42,6 +42,28 @@ npm run check
 
 `npm run check` is the fastest way to mirror CI end-to-end.
 
+### Mocking network requests
+
+Vitest starts the shared Mock Service Worker server from `src/test/server.ts`
+for every suite. Add handlers inside the test that needs them so the global
+`afterEach` hook can restore a clean server between cases:
+
+```ts
+import { HttpResponse, http } from "msw";
+
+import { server } from "@/test/server";
+
+server.use(
+  http.get("https://api.lily.test/agents", () =>
+    HttpResponse.json({ agents: [] }),
+  ),
+);
+```
+
+Unhandled requests fail the test. Mock each expected network call instead of
+allowing a test to reach a live service, and prefer deterministic response data
+that covers the behavior under test.
+
 ## Pull requests
 
 - Explain the problem being solved, not only the code that changed.
