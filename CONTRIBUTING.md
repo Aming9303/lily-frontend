@@ -8,6 +8,9 @@ Thanks for helping build Lily Protocol.
 - Install dependencies with `npm install`.
 - Run `npm run dev` for local work.
 - Run `npm run check` before opening a pull request.
+- Use an editor with native EditorConfig support or install its EditorConfig
+  extension so indentation, UTF-8 encoding, LF endings, and final newlines match
+  the repository defaults.
 
 ## Project shape
 
