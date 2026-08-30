@@ -3,6 +3,10 @@
 :root {
   --color-surface: #f7f7f5;
   --color-panel: #ffffff;
+  /* Solid panels, translucent chrome, and text on ink use these tokens. */
+  --color-panel-solid: var(--color-panel);
+  --color-header: color-mix(in oklab, var(--color-panel-solid) 90%, transparent);
+  --color-on-ink: #ffffff;
   --color-panel-muted: #f1f3f5;
   --color-ink: #111827;
   --color-muted: #4b5563;
