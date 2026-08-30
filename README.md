@@ -62,6 +62,10 @@ npm run check
 
 `npm run check` mirrors CI and is the fastest way to validate a contribution before opening a PR.
 
+## Legacy redirects
+
+Known retired paths are mapped to their current routes in `next.config.ts`. Add a permanent redirect there only after confirming the old public URL and its canonical replacement, and extend `next.config.test.ts` with the same mapping.
+
 ## Project structure
 
 ```text
