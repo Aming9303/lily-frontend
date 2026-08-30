@@ -56,6 +56,7 @@ npm run check
 - Keep business logic and presentation modular so future contributors can extend issue-sized features without rewriting route files.
 - Add or update tests when you change reusable behavior, rendering logic, or project configuration.
 - Use typed imports, consistent naming, and small focused components over large catch-all files.
+- Update `docs/design-tokens.md` whenever a shared color, shadow, font, or Figma mapping token changes.
 - If a route is still scaffolded, preserve the scaffold clarity while implementing only the issue scope you were assigned.
 
 ## Issues and contributor tasks

@@ -64,6 +64,8 @@ npm run check
 
 ## Project structure
 
+See [Design tokens](./docs/design-tokens.md) for the current color, shadow, typography, and Figma mapping reference.
+
 ```text
 src/
   app/                  App Router routes, route groups, and layouts
