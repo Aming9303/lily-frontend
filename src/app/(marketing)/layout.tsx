@@ -1,6 +1,8 @@
 import { SectionLayout } from "@/components/scaffold/section-layout";
 import { getSectionRoutes, sectionDefinitions } from "@/config/routes";
 
+export const revalidate = 3600;
+
 const marketingSection = sectionDefinitions.find(
   (section) => section.key === "marketing",
 );
