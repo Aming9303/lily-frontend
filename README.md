@@ -64,6 +64,9 @@ npm run check
 
 ## Project structure
 
+See [Layout Architecture](./docs/architecture.md) for the route-group hierarchy,
+shared section shell, and typed route data flow.
+
 ```text
 src/
   app/                  App Router routes, route groups, and layouts
