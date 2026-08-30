@@ -42,6 +42,9 @@ npm run check
 
 `npm run check` is the fastest way to mirror CI end-to-end.
 
+See [Testing conventions](./docs/testing.md) for test placement, route fixtures,
+Testing Library examples, and coverage expectations.
+
 ## Pull requests
 
 - Explain the problem being solved, not only the code that changed.
