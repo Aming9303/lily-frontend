@@ -8,12 +8,34 @@
   --color-muted: #4b5563;
   --color-line: #d1d5db;
   --color-accent: #0f766e;
+
+  /*
+   * Canonical status palette. Transaction, incident, and activity UI should
+   * use these tokens instead of introducing raw status colors.
+   */
+  --color-success: #1a7f37;
+  --color-success-soft: #dafbe1;
+  --color-warning: #9a6700;
+  --color-warning-soft: #fff8c5;
+  --color-danger: #cf222e;
+  --color-danger-soft: #ffebe9;
+  --color-info: #0969da;
+  --color-info-soft: #ddf4ff;
+
   --shadow-soft: 0 16px 40px rgba(17, 24, 39, 0.06);
 }
 
 @theme inline {
   --color-background: var(--color-surface);
   --color-foreground: var(--color-ink);
+  --color-status-success: var(--color-success);
+  --color-status-success-soft: var(--color-success-soft);
+  --color-status-warning: var(--color-warning);
+  --color-status-warning-soft: var(--color-warning-soft);
+  --color-status-danger: var(--color-danger);
+  --color-status-danger-soft: var(--color-danger-soft);
+  --color-status-info: var(--color-info);
+  --color-status-info-soft: var(--color-info-soft);
   --font-sans: var(--font-space-grotesk);
   --font-mono: var(--font-ibm-plex-mono);
 }
