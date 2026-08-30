@@ -1,4 +1,5 @@
 # Lily Frontend
+
 <img width="1197" height="407" alt="image" src="https://github.com/user-attachments/assets/1cbfb0fe-3668-4e82-8fda-68b1cc4efc25" />
 
 Contributor-ready frontend foundation for Lily Protocol. This repository is intentionally light on shipped product UI so contributors can build features through scoped issues and pull requests.
@@ -41,8 +42,14 @@ Install dependencies and start the dev server:
 
 ```bash
 npm install
+cp .env.example .env.local
 npm run dev
 ```
+
+Set `NEXT_PUBLIC_SITE_URL` to the deployed frontend origin and
+`NEXT_PUBLIC_API_BASE_URL` to the browser-accessible Lily API base URL. Public
+environment access is centralized and validated in `src/config/env.ts`; add new
+`NEXT_PUBLIC_*` values there instead of reading `process.env` throughout the app.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -86,6 +93,7 @@ src/
 - `Dashboard`: `/app`, `/app/agents`, `/app/agents/[id]`, `/app/payments`, `/app/wallets`, `/app/activity`, `/app/developers`, `/app/settings`
 
 Each route is scaffolded with:
+
 - the route name
 - intended screen purpose
 - a note that implementation should follow approved Figma work

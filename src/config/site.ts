@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { staticSitePages } from "@/config/routes";
+import { publicEnv } from "@/config/env";
 
 import type { SitePage, StaticSiteRoute } from "@/types/site";
 
@@ -20,7 +21,7 @@ export const siteConfig = {
     "Contributor-ready frontend foundation for Lily Protocol, designed for issue-driven UI and product development.",
   tagline:
     "A stable Next.js frontend foundation for issue-driven open source contribution.",
-  url: "https://lilyprotocol.dev",
+  url: publicEnv.siteUrl,
   keywords: [
     "Stellar",
     "frontend",
