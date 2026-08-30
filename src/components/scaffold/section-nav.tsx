@@ -22,7 +22,7 @@ export function SectionNav({ routes }: SectionNavProps) {
               </div>
             ) : (
               <Link
-                className="flex items-center justify-between rounded-2xl border border-[var(--color-line)] bg-[var(--color-panel-muted)] px-4 py-3 text-sm hover:border-[var(--color-accent)]"
+                className="motion-link flex items-center justify-between rounded-2xl border border-[var(--color-line)] bg-[var(--color-panel-muted)] px-4 py-3 text-sm hover:border-[var(--color-accent)]"
                 href={route.path as Route}
               >
                 <span>{route.title}</span>

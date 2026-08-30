@@ -62,6 +62,14 @@ npm run check
 
 `npm run check` mirrors CI and is the fastest way to validate a contribution before opening a PR.
 
+## Motion tokens
+
+Motion values live in `src/app/globals.css`. Use `--duration-fast` for hover
+feedback, `--duration-base` for ordinary state changes, and `--duration-slow`
+for larger transitions. Pair them with `--ease-standard`; interactive links can
+use the shared `motion-link` class, which becomes instant when the user prefers
+reduced motion.
+
 ## Project structure
 
 ```text

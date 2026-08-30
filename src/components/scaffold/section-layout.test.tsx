@@ -19,13 +19,13 @@ describe("SectionLayout", () => {
     expect(
       screen.getByRole("link", { name: /lily protocol/i }),
     ).toHaveAttribute("href", "/");
-    expect(screen.getByRole("link", { name: /docs/i })).toHaveAttribute(
-      "href",
-      "/docs",
-    );
-    expect(
-      screen.getByRole("link", { name: /landing page/i }),
-    ).toHaveAttribute("href", "/");
+    const docsLink = screen.getByRole("link", { name: /docs/i });
+    expect(docsLink).toHaveAttribute("href", "/docs");
+    expect(docsLink.classList.contains("motion-link")).toBe(true);
+
+    const landingLink = screen.getByRole("link", { name: /landing page/i });
+    expect(landingLink).toHaveAttribute("href", "/");
+    expect(landingLink.classList.contains("motion-link")).toBe(true);
     expect(screen.getByText("Section content")).toBeInTheDocument();
   });
 
