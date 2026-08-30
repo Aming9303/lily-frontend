@@ -40,13 +40,15 @@ The main dashboard, landing experience, and protocol-facing UI should be introdu
 Install dependencies and start the dev server:
 
 ```bash
+nvm install
+nvm use
 npm install
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Use Node.js `22+`. The repo declares this in `package.json` so local and CI environments stay aligned.
+Use Node.js `22+`. The `.nvmrc`, `package.json` engines field, and CI workflow all target Node 22 so local and CI environments stay aligned.
 
 Docker is not configured in this repository yet. The badge above marks it as planned rather than available today.
 
