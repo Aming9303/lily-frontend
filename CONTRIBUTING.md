@@ -58,6 +58,13 @@ npm run check
 - Use typed imports, consistent naming, and small focused components over large catch-all files.
 - If a route is still scaffolded, preserve the scaffold clarity while implementing only the issue scope you were assigned.
 
+### Route error boundaries
+
+- Add `error.tsx` at the nearest route-group boundary that owns the recovery experience.
+- Error boundaries must be client components and call the provided `reset` function from a clear recovery action.
+- Use shared scaffold tokens, provide an accessible alert and heading, and do not render raw error messages or stack traces.
+- Cover the friendly message and reset interaction with a component test.
+
 ## Issues and contributor tasks
 
 - Use the bug report template for regressions and broken behavior.
