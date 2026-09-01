@@ -60,8 +60,14 @@ This project follows the [Contributor Covenant](CODE_OF_CONDUCT.md). By particip
 nvm install
 nvm use
 npm install
+cp .env.example .env.local
 npm run dev
 ```
+
+Set `NEXT_PUBLIC_SITE_URL` to the deployed frontend origin and
+`NEXT_PUBLIC_API_BASE_URL` to the browser-accessible Lily API base URL. Public
+environment access is centralized and validated in `src/config/env.ts`; add new
+`NEXT_PUBLIC_*` values there instead of reading `process.env` throughout the app.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
