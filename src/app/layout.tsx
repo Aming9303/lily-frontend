@@ -1,4 +1,5 @@
-import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+ import type { Viewport } from "next";
+ import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 
 import { createOrganizationJsonLd, createSiteMetadata } from "@/config/site";
 
