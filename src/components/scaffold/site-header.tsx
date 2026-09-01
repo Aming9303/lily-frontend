@@ -14,19 +14,19 @@ export function SiteHeader() {
           >
             {siteConfig.name}
           </Link>
-          <p className="mt-1 text-sm text-[var(--color-muted)]">
+          <p className="mt-1 text-sm text-(--color-muted)">
             Contributor-ready scaffold
           </p>
         </div>
         <nav aria-label="Global" className="flex flex-wrap gap-2 text-sm">
           <Link
-            className="rounded-full border border-[var(--color-line)] px-4 py-2 hover:border-[var(--color-accent)]"
+            className="rounded-full border border-(--color-line) px-4 py-2 hover:border-(--color-accent)"
             href={routes.docs as Route}
           >
             Docs
           </Link>
           <Link
-            className="rounded-full border border-[var(--color-line)] px-4 py-2 hover:border-[var(--color-accent)]"
+            className="rounded-full border border-(--color-line) px-4 py-2 hover:border-(--color-accent)"
             href={routes.signin as Route}
           >
             Sign in
