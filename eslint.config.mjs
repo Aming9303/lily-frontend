@@ -33,7 +33,6 @@ const eslintConfig = defineConfig([
       "react/jsx-no-target-blank": ["error", { enforceDynamicLinks: "always" }],
     },
   },
-  // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
     '.next/**',
