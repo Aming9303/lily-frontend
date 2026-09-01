@@ -1,67 +1,63 @@
-# Design tokens
+# Design Token System
 
-Lily's shared design values live in `src/app/globals.css`. Components should use these CSS variables instead of copying color, shadow, or font values so a future Figma update can be applied in one place.
+Lily Frontend uses CSS custom properties (design tokens) defined in `src/app/globals.css` to ensure visual consistency across all components and pages. All UI should reference these tokens rather than raw color values or hardcoded spacing.
 
-## Color tokens
+## Color Tokens
 
-| CSS variable | Value | Purpose |
-| --- | --- | --- |
-| `--color-surface` | `#f7f7f5` | Page background and the default application canvas |
-| `--color-panel` | `#ffffff` | Primary panels and raised surfaces |
-| `--color-panel-muted` | `#f1f3f5` | Secondary panels, route items, and inset content |
-| `--color-ink` | `#111827` | Primary text and high-emphasis controls |
-| `--color-muted` | `#4b5563` | Supporting copy and secondary labels |
-| `--color-line` | `#d1d5db` | Borders, dividers, and low-emphasis outlines |
-| `--color-accent` | `#0f766e` | Interactive emphasis, section labels, and hover borders |
+| Token | Value | Usage |
+|---|---|---|
+| `--color-surface` | `#f7f7f5` | Page background, outermost container |
+| `--color-panel` | `#ffffff` | Card backgrounds, elevated surfaces |
+| `--color-panel-muted` | `#f1f3f5` | Secondary panels, hover states, inactive areas |
+| `--color-ink` | `#111827` | Primary text, headings, high-emphasis content |
+| `--color-muted` | `#4b5563` | Secondary text, captions, metadata |
+| `--color-line` | `#d1d5db` | Borders, dividers, input outlines |
+| `--color-accent` | `#0f766e` | Interactive elements, links, active states, focus rings |
 
-## Figma mapping
+## Shadow Tokens
 
-Use these semantic Figma color style names when translating approved designs. If the Figma file uses a different display name, match by semantic role and value rather than introducing a duplicate CSS variable.
+| Token | Value | Usage |
+|---|---|---|
+| `--shadow-soft` | `0 16px 40px rgba(17, 24, 39, 0.06)` | Elevated cards, modals, dropdowns |
 
-| Figma semantic style | CSS variable | Current value |
-| --- | --- | --- |
-| `Surface / Default` | `--color-surface` | `#f7f7f5` |
-| `Surface / Panel` | `--color-panel` | `#ffffff` |
-| `Surface / Muted` | `--color-panel-muted` | `#f1f3f5` |
-| `Text / Primary` | `--color-ink` | `#111827` |
-| `Text / Muted` | `--color-muted` | `#4b5563` |
-| `Border / Default` | `--color-line` | `#d1d5db` |
-| `Accent / Primary` | `--color-accent` | `#0f766e` |
+## Typography Tokens
 
-## Shadow token
+Typography is configured via `next/font/google` in `src/app/layout.tsx` and exposed as CSS variables:
 
-| CSS variable | Value | Purpose |
-| --- | --- | --- |
-| `--shadow-soft` | `0 16px 40px rgba(17, 24, 39, 0.06)` | Subtle elevation for `.surface` panels |
+| Token | Font Family | Usage |
+|---|---|---|
+| `--font-space-grotesk` | Space Grotesk | Headings, body text, primary sans-serif |
+| `--font-ibm-plex-mono` | IBM Plex Mono | Code blocks, labels, monospaced content |
 
-The shadow's RGB channels correspond to `--color-ink` (`#111827`) at six percent opacity. Keep the shadow restrained so borders remain the primary surface boundary.
+## Motion Tokens
 
-## Typography tokens
+| Token | Value | Usage |
+|---|---|---|
+| `--duration-fast` | `150ms` | Micro-interactions, button feedback |
+| `--duration-base` | `250ms` | Standard transitions, hover effects |
+| `--duration-slow` | `400ms` | Page transitions, complex animations |
+| `--ease-standard` | `cubic-bezier(0.4, 0, 0.2, 1)` | Default easing for all transitions |
 
-The root layout loads fonts with `next/font` and injects the following variables:
+All motion tokens respect `prefers-reduced-motion` via Tailwind's `motion-reduce:` variant.
 
-| CSS variable | Typeface | Purpose |
-| --- | --- | --- |
-| `--font-space-grotesk` | Space Grotesk | Default interface and editorial text |
-| `--font-ibm-plex-mono` | IBM Plex Mono | Paths, code-like labels, and `.eyebrow` text |
+## Figma Mapping
 
-`@theme inline` exposes the application tokens to Tailwind:
+When implementing designs from the [Lily Protocol Figma file](https://www.figma.com/design/GRBeDGDHzCGXefm3xmlbHF/Lily-Protocol), use this mapping:
 
-| Tailwind theme variable | Source token |
-| --- | --- |
-| `--color-background` | `--color-surface` |
-| `--color-foreground` | `--color-ink` |
-| `--font-sans` | `--font-space-grotesk` |
-| `--font-mono` | `--font-ibm-plex-mono` |
+| Figma Style | CSS Token |
+|---|---|
+| Surface / Background | `--color-surface` |
+| Card / White | `--color-panel` |
+| Text / Primary | `--color-ink` |
+| Text / Secondary | `--color-muted` |
+| Border / Divider | `--color-line` |
+| Accent / Teal | `--color-accent` |
+| Shadow / Soft | `--shadow-soft` |
 
-## Usage
+## Adding New Tokens
 
-Use token-backed utilities in component markup:
-
-```tsx
-<section className="border border-[var(--color-line)] bg-[var(--color-panel)] text-[var(--color-ink)]">
-  <p className="text-[var(--color-muted)]">Supporting copy</p>
-</section>
-```
-
-Before adding or changing a token, compare it with the approved Figma styles, update the tables above, and check existing components for places that should adopt the shared value.
+1. Define the new CSS custom property in `:root` within `src/app/globals.css`.
+2. Document it in this file with its value and intended usage.
+3. If it maps to a Figma style, add an entry to the Figma Mapping table.
+4. Reference the token in component code using `var(--token-name)` or Tailwind arbitrary values like `[var(--token-name)]`.
+5. Update this document in the same PR that introduces the token.
