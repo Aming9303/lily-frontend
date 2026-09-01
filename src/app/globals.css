@@ -85,6 +85,15 @@ a {
   text-decoration: none;
 }
 
+:where(a, button, [role="button"], input, select, textarea, summary):focus {
+  outline: none;
+}
+
+:where(a, button, [role="button"], input, select, textarea, summary):focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
 ::selection {
   background: rgba(15, 118, 110, 0.18);
 }
