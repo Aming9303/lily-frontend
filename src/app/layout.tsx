@@ -16,6 +16,13 @@ const ibmPlexMono = IBM_Plex_Mono({
   weight: ['400', '500'],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#f7f7f5",
+  colorScheme: "light",
+};
+
 export const metadata = createSiteMetadata();
 
 const jsonLd = createOrganizationJsonLd();
