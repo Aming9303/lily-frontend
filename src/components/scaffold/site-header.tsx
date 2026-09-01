@@ -63,6 +63,41 @@ export function SiteHeader() {
             {scaffoldMessages.siteHeader.dashboard}
           </Link>
         </nav>
+
+        {/* Mobile Hamburger Toggle Button */}
+        <div className="flex md:hidden">
+          <button
+            type="button"
+            aria-controls="mobile-navigation"
+            aria-expanded={isOpen}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            onClick={() => setIsOpen((prev) => !prev)}
+            className="inline-flex items-center justify-center rounded-lg border border-[var(--color-line)] p-2 text-[var(--color-ink)] hover:bg-[var(--color-panel-muted)]"
+          >
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {isOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Mobile nav dropdown */}
