@@ -3,17 +3,17 @@
 
 import { createOrganizationJsonLd, createSiteMetadata } from "@/config/site";
 
-import "./globals.css";
+import './globals.css';
 
 const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
+  variable: '--font-space-grotesk',
+  subsets: ['latin'],
 });
 
 const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-ibm-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  variable: '--font-ibm-plex-mono',
+  subsets: ['latin'],
+  weight: ['400', '500'],
 });
 
 export const metadata = createSiteMetadata();

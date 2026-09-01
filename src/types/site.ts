@@ -27,7 +27,7 @@ export type StaticSiteRoute =
   | "/app/developers"
   | "/app/settings";
 
-export type DynamicSiteRoute = "/app/agents/[id]";
+export type DynamicSiteRoute = '/app/agents/[id]';
 
 export type SiteRoute = StaticSiteRoute | DynamicSiteRoute;
 

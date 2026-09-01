@@ -4,7 +4,7 @@ import type { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { routes, siteConfig } from "@/config/site";
+import { routes, siteConfig } from '@/config/site';
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -13,10 +13,7 @@ export function SiteHeader() {
     <header className="border-b border-[var(--color-line)] bg-[var(--color-header-bg)]">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
         <div>
-          <Link
-            className="text-lg font-semibold tracking-tight"
-            href={routes.home as Route}
-          >
+          <Link className="text-lg font-semibold tracking-tight" href={routes.home as Route}>
             {siteConfig.name}
           </Link>
           <p className="mt-1 text-sm text-(--color-muted)">

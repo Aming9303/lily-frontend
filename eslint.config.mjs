@@ -22,11 +22,11 @@ const eslintConfig = defineConfig([
   },
   {
     rules: {
-      "@typescript-eslint/consistent-type-imports": [
-        "error",
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
         {
-          prefer: "type-imports",
-          fixStyle: "inline-type-imports",
+          prefer: 'type-imports',
+          fixStyle: 'inline-type-imports',
         },
       ],
       "react/jsx-no-target-blank": ["error", { enforceDynamicLinks: "always" }],
@@ -35,11 +35,11 @@ const eslintConfig = defineConfig([
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-    "coverage/**",
+    '.next/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts',
+    'coverage/**',
   ]),
 ]);
 

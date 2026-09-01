@@ -2,7 +2,7 @@ import { SectionNav } from "@/components/scaffold/section-nav";
 import { SiteFooter } from "@/components/scaffold/site-footer";
 import { SiteHeader } from "@/components/scaffold/site-header";
 
-import type { RouteScaffold } from "@/types/site";
+import type { RouteScaffold } from '@/types/site';
 
 type SectionLayoutProps = {
   readonly title: string;
@@ -11,12 +11,7 @@ type SectionLayoutProps = {
   readonly children: React.ReactNode;
 };
 
-export function SectionLayout({
-  title,
-  description,
-  routes,
-  children,
-}: SectionLayoutProps) {
+export function SectionLayout({ title, description, routes, children }: SectionLayoutProps) {
   return (
     <>
       <SiteHeader />
