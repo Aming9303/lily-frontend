@@ -39,6 +39,13 @@ The main dashboard, landing experience, and protocol-facing UI should be introdu
 
 ## Local development
 
+Ensure you are using Node.js 22 (matches `engines` and CI):
+
+```bash
+nvm install
+nvm use
+```
+
 Install dependencies and start the dev server:
 
 1. Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_SITE_URL`.
