@@ -2,6 +2,7 @@ import { defineConfig, globalIgnores } from "eslint/config";
 import pluginTailwindcss from "eslint-plugin-tailwindcss";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import tailwind from "eslint-plugin-tailwindcss";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
