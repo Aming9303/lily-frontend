@@ -11,6 +11,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "clean": "rimraf .next coverage tsconfig.tsbuildinfo",
+    "format": "prettier --write . --ignore-unknown",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
