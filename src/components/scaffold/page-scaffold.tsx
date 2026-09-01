@@ -1,4 +1,5 @@
 import type { RouteScaffold } from "@/types/site";
+import { ImplementationAreasWrapper } from "./implementation-areas-wrapper";
 
 type PageScaffoldProps = {
   readonly route: RouteScaffold;
