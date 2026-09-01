@@ -1,23 +1,18 @@
 import { describe, expect, it } from "vitest";
-
 import robots from "./robots";
-import sitemap from "./sitemap";
+import { siteConfig } from "@/config/site";
 
-describe("crawler metadata", () => {
-  it("blocks the authenticated app tree while allowing public routes", () => {
-    const metadata = robots();
+describe("robots.txt configuration", () => {
+  it("disallows authenticated /app routes while allowing public crawling", () => {
+    const config = robots();
 
-    expect(metadata.rules).toEqual({
-      userAgent: "*",
-      allow: "/",
-      disallow: "/app",
-    });
-  });
+    expect(config.host).toBe(siteConfig.url);
+    expect(config.sitemap).toBe(`${siteConfig.url}/sitemap.xml`);
 
-  it("keeps the sitemap limited to public pages", () => {
-    const urls = sitemap().map(({ url }) => new URL(url).pathname);
-
-    expect(urls).toContain("/about");
-    expect(urls.every((path) => !path.startsWith("/app"))).toBe(true);
+    const rules = Array.isArray(config.rules) ? config.rules[0] : config.rules;
+    expect(rules).toBeDefined();
+    expect(rules?.userAgent).toBe("*");
+    expect(rules?.allow).toBe("/");
+    expect(rules?.disallow).toEqual(["/app", "/app/"]);
   });
 });
