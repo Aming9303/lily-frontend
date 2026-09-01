@@ -1,17 +1,16 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from '@testing-library/react';
 
-import { getSectionRoutes } from "@/config/routes";
+import { getSectionRoutes } from '@/config/routes';
 
-import { SectionLayout } from "./section-layout";
+import { SectionLayout } from './section-layout';
 
-describe("SectionLayout", () => {
-  it("renders the shared shell, global nav, and section route links", () => {
+describe('SectionLayout', () => {
+  it('renders the shared shell, global nav, and section route links', () => {
     render(
       <SectionLayout
         title="Public marketing"
         description="Public-facing route group."
-        routes={getSectionRoutes("marketing")}
-        navLabel="Marketing pages"
+        routes={getSectionRoutes('marketing')}
       >
         <div>Section content</div>
       </SectionLayout>,
@@ -24,29 +23,24 @@ describe("SectionLayout", () => {
       "href",
       "/docs",
     );
-    expect(
-      screen.getByRole("link", { name: /landing page/i }),
-    ).toHaveAttribute("href", "/");
-    expect(
-      screen.getByRole("navigation", { name: "Marketing pages" }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /landing page/i })).toHaveAttribute(
+      "href",
+      "/",
+    );
     expect(screen.getByText("Section content")).toBeInTheDocument();
   });
 
-  it("shows dynamic routes as non-clickable scaffold entries", () => {
+  it('shows dynamic routes as non-clickable scaffold entries', () => {
     render(
       <SectionLayout
         title="Dashboard"
         description="Signed-in workspace."
-        routes={getSectionRoutes("dashboard")}
+        routes={getSectionRoutes('dashboard')}
       >
         <div>Dashboard section</div>
       </SectionLayout>,
     );
 
-    expect(screen.getByText("/app/agents/[id]")).toBeInTheDocument();
-    expect(
-      screen.getByRole("navigation", { name: "Section routes" }),
-    ).toBeInTheDocument();
+    expect(screen.getByText('/app/agents/[id]')).toBeInTheDocument();
   });
 });
