@@ -37,9 +37,9 @@ export function SectionNav({ routes }: SectionNavProps) {
                   {route.path}
                 </span>
               </Link>
-            )}
-          </li>
-        ))}
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );
