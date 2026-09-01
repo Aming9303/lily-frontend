@@ -12,6 +12,9 @@ Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md) before contribu
 - Install dependencies with `npm install`.
 - Run `npm run dev` for local work.
 - Run `npm run check` before opening a pull request.
+- Use an editor with native EditorConfig support or install its EditorConfig
+  extension so indentation, UTF-8 encoding, LF endings, and final newlines match
+  the repository defaults.
 
 ## Project shape
 
