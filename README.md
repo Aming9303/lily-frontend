@@ -119,6 +119,8 @@ src/
   instrumentation.ts    Server-side error observability and telemetry hook
   test/                 Shared test setup
   types/                Shared TypeScript types
+docs/
+  adr/                  Architecture Decision Records (see ADR 0001: Route-Scaffold Architecture)
 .github/
   workflows/            CI automation
   ISSUE_TEMPLATE/       GitHub issue templates
