@@ -1,21 +1,18 @@
 import { SectionNav } from "@/components/scaffold/section-nav";
+import { SiteFooter } from "@/components/scaffold/site-footer";
 import { SiteHeader } from "@/components/scaffold/site-header";
 
-import type { RouteScaffold } from "@/types/site";
+import type { RouteScaffold } from '@/types/site';
 
 type SectionLayoutProps = {
   readonly title: string;
   readonly description: string;
   readonly routes: readonly RouteScaffold[];
+  readonly navLabel?: string;
   readonly children: React.ReactNode;
 };
 
-export function SectionLayout({
-  title,
-  description,
-  routes,
-  children,
-}: SectionLayoutProps) {
+export function SectionLayout({ title, description, routes, children }: SectionLayoutProps) {
   return (
     <>
       <a
@@ -25,15 +22,18 @@ export function SectionLayout({
         Skip to main content
       </a>
       <SiteHeader />
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-8 sm:px-6 lg:px-8 lg:flex-row">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-8 sm:px-6 lg:flex-row lg:px-8">
         <aside className="lg:w-80 lg:flex-none">
-          <div className="surface rounded-[1.5rem] p-6">
-            <p className="eyebrow text-[var(--color-accent)]">{title}</p>
-            <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
+          <div className="surface rounded-3xl p-6">
+            <p className="eyebrow text-(--color-accent)">{title}</p>
+            <p className="mt-3 text-sm leading-7 text-(--color-muted)">
               {description}
             </p>
             <div className="mt-6">
-              <SectionNav routes={routes} />
+              <SectionNav
+                routes={routes}
+                ariaLabel={navLabel ?? "Section routes"}
+              />
             </div>
           </div>
         </aside>
@@ -41,6 +41,7 @@ export function SectionLayout({
           {children}
         </main>
       </div>
+      <SiteFooter />
     </>
   );
 }
