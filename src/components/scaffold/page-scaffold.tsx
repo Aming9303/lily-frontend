@@ -70,7 +70,7 @@ export function PageScaffold({
           </ul>
         </article>
       </section>
-    </main>
+    </section>
   );
 }
 
