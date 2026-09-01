@@ -138,6 +138,22 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for workflow expectations, issue triage
 - Clear route ownership for future issues
 - Stable base branch with no speculative product polish
 
+### List empty states
+
+Use `EmptyState` from `src/components/ui/empty-state.tsx` when a list route has
+no records to display. Supply the route-specific icon, title, description, and
+optional action instead of duplicating empty-state layout styles:
+
+```tsx
+<EmptyState
+  icon={walletIcon}
+  eyebrow="Wallets"
+  title="No wallets yet"
+  description="Create a wallet to start receiving payments."
+  action={<button type="button">Create wallet</button>}
+/>
+```
+
 ## CI
 
 GitHub Actions runs linting, type-checking, tests with coverage, and production builds on pushes and pull requests. Each check runs as its own job with `fail-fast` disabled, so you can immediately see exactly what failed without losing the rest of the signal. The workflow also persists `.next/cache` to speed up repeat builds in line with the current Next.js CI caching guidance.
