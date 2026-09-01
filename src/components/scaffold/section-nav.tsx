@@ -8,13 +8,14 @@ import type { RouteScaffold } from '@/types/site';
 
 type SectionNavProps = {
   readonly routes: readonly RouteScaffold[];
+  readonly ariaLabel?: string;
 };
 
 export function SectionNav({ routes }: SectionNavProps) {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Section routes">
+    <nav aria-label={ariaLabel}>
       <ul className="grid gap-2">
         {routes.map((route) => (
           <li key={route.id}>
