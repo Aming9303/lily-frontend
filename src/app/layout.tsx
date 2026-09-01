@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${ibmPlexMono.variable} h-full scroll-smooth`}
+      className={`${spaceGrotesk.variable} ${ibmPlexMono.variable} h-full`}
     >
       <head>
         <script
