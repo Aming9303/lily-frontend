@@ -2,6 +2,10 @@
 
 Thanks for helping build Lily Protocol.
 
+## Code of Conduct
+
+Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
+
 ## Local setup
 
 - Use Node.js 22 or newer.
@@ -42,27 +46,17 @@ npm run check
 
 `npm run check` is the fastest way to mirror CI end-to-end.
 
-### Mocking network requests
+CI also runs `npm audit --omit=dev --audit-level=high` after installing from `package-lock.json`. The audit job fails only on high-severity advisories in production dependencies; dev-only advisories are excluded via `--omit=dev`.
 
-Vitest starts the shared Mock Service Worker server from `src/test/server.ts`
-for every suite. Add handlers inside the test that needs them so the global
-`afterEach` hook can restore a clean server between cases:
+### Dependency audit triage
 
-```ts
-import { HttpResponse, http } from "msw";
+When the dependency audit job fails locally or in CI:
 
-import { server } from "@/test/server";
-
-server.use(
-  http.get("https://api.lily.test/agents", () =>
-    HttpResponse.json({ agents: [] }),
-  ),
-);
-```
-
-Unhandled requests fail the test. Mock each expected network call instead of
-allowing a test to reach a live service, and prefer deterministic response data
-that covers the behavior under test.
+1. Reproduce with `npm ci` then `npm audit --omit=dev --audit-level=high` so results match CI (do not use `npm install`, which can drift from the lockfile).
+2. Identify whether each advisory affects a direct dependency or a transitive one (`npm audit` lists the dependency chain).
+3. Prefer upgrading to a patched release within the project's supported range. Use Dependabot PRs when they exist, or bump `package.json` and regenerate the lockfile with `npm install <package>@<version>`.
+4. If no fix is available yet, assess exploitability in this app (server vs client, dev-only tooling vs production runtime). Document the risk and link the advisory in the PR; do not merge with a failing audit unless maintainers explicitly accept the exception.
+5. Do not use `npm audit fix --force` without review—it can jump to major versions outside the stated dependency range.
 
 ## Pull requests
 
@@ -95,3 +89,8 @@ that covers the behavior under test.
 ## Reporting issues
 
 Use the GitHub issue templates for bugs, features, and contributor-scoped tasks. Reproduction steps, expected behavior, acceptance criteria, and screenshots help us move faster.
+
+## Code of Conduct
+
+Please review and adhere to our [Code of Conduct](./CODE_OF_CONDUCT.md) in all project spaces and discussions.
+
