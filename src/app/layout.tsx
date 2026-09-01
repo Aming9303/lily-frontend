@@ -38,6 +38,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full bg-[var(--color-surface)] text-[var(--color-ink)]">
         {children}
+        <SiteFooter />
       </body>
     </html>
   );
