@@ -93,6 +93,7 @@ and external links continue to work.
 npm run lint
 npm run typecheck
 npm run test:run
+npm run test:e2e
 npm run build
 npm run check
 npm run format
@@ -195,7 +196,7 @@ optional action instead of duplicating empty-state layout styles:
 
 ## CI
 
-GitHub Actions runs linting, type-checking, tests with coverage, and production builds on pushes and pull requests. Each check runs as its own job with `fail-fast` disabled, so you can immediately see exactly what failed without losing the rest of the signal. The workflow also persists `.next/cache` to speed up repeat builds in line with the current Next.js CI caching guidance.
+GitHub Actions runs linting, type-checking, tests with coverage, production builds, and Playwright smoke tests on pushes and pull requests. The Playwright job builds the app, serves it with `next start`, and uploads traces and screenshots when the smoke suite fails. Each validation check runs as its own job with `fail-fast` disabled, so you can immediately see exactly what failed without losing the rest of the signal. The workflow also persists `.next/cache` to speed up repeat builds in line with the current Next.js CI caching guidance.
 
 ## Notes
 
