@@ -20,6 +20,8 @@ export const siteConfig = {
     'Contributor-ready frontend foundation for Lily Protocol, designed for issue-driven UI and product development.',
   tagline: 'A stable Next.js frontend foundation for issue-driven open source contribution.',
   url: 'https://lilyprotocol.dev',
+  manifestPath: '/manifest.webmanifest',
+  themeColor: '#f7f7f5',
   keywords: ['Stellar', 'frontend', 'Next.js', 'TypeScript', 'contributors', 'open source', 'web3'],
   pages: staticSitePages as readonly SitePage[],
 } as const;
@@ -35,9 +37,6 @@ export function createSiteMetadata(
 
   return {
     metadataBase: new URL(siteConfig.url),
-    alternates: {
-      canonical: siteConfig.url,
-    },
     title: {
       default: siteConfig.name,
       template: `%s | ${siteConfig.name}`,

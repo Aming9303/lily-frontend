@@ -1,9 +1,11 @@
- import type { Viewport } from "next";
- import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+import type { Viewport } from "next";
+import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 
-import { createOrganizationJsonLd, createSiteMetadata } from "@/config/site";
+import { SiteFooter } from "@/components/site-footer";
+import { createOrganizationJsonLd, serializeJsonLd } from "@/config/json-ld";
+import { createSiteMetadata } from "@/config/site";
 
-import './globals.css';
+import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
@@ -25,8 +27,6 @@ export const viewport: Viewport = {
 
 export const metadata = createSiteMetadata();
 
-const jsonLd = createOrganizationJsonLd();
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -39,12 +39,6 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${ibmPlexMono.variable} h-full`}
     >
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
       <body className="min-h-full bg-[var(--color-surface)] text-[var(--color-ink)]">
         <script
           dangerouslySetInnerHTML={{ __html: organizationJsonLd }}

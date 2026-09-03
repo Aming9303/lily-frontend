@@ -1,8 +1,7 @@
 import type { RouteScaffold } from "@/types/site";
-import { ImplementationAreasWrapper } from "./implementation-areas-wrapper";
 
 type PageScaffoldProps = {
-      <div className="flex flex-wrap items-start justify-between gap-4 min-w-0">
+  readonly route: RouteScaffold;
   readonly dynamicLabel?: string;
   readonly statusMessage?: string;
 };
@@ -53,7 +52,6 @@ export function PageScaffold({
           <p className="mt-4 text-base leading-7 text-(--color-muted)">
             {route.figmaScope}
           </p>
-          <p className="mt-4 text-base leading-7 text-[var(--color-muted)]">{route.figmaScope}</p>
         </article>
 
         <article className="rounded-3xl border border-(--color-line) bg-(--color-panel-muted) p-6">
@@ -70,7 +68,6 @@ export function PageScaffold({
           </ul>
         </article>
       </section>
-    </section>
+    </main>
   );
 }
-

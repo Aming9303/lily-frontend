@@ -20,6 +20,10 @@ type LazySectionProps = {
   label?: string;
 };
 
+// Creates a lazy component from the caller-provided dynamic import. The
+// component is recreated on each render by design; the rule is disabled because
+// the module target is supplied per-use (bounty #83 convention).
+// eslint-disable-next-line react-hooks/static-components
 const LazySectionInner = ({
   module,
 }: Omit<LazySectionProps, "label">) => {

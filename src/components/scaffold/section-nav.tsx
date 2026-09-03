@@ -4,14 +4,14 @@ import type { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import type { RouteScaffold } from '@/types/site';
+import type { RouteScaffold } from "@/types/site";
 
 type SectionNavProps = {
   readonly routes: readonly RouteScaffold[];
   readonly ariaLabel?: string;
 };
 
-export function SectionNav({ routes }: SectionNavProps) {
+export function SectionNav({ routes, ariaLabel }: SectionNavProps) {
   const pathname = usePathname();
 
   return (
@@ -37,11 +37,10 @@ export function SectionNav({ routes }: SectionNavProps) {
                   {route.path}
                 </span>
               </Link>
-            </li>
-          );
-        })}
+            )}
+          </li>
+        ))}
       </ul>
     </nav>
   );
 }
-
