@@ -12,19 +12,17 @@
     "build": "next build",
     "start": "next start",
     "clean": "rimraf .next coverage tsconfig.tsbuildinfo",
-    "format": "prettier --write . --ignore-unknown",
-    "lint": "eslint .",
     "format": "prettier --write .",
+    "lint": "eslint .",
     "format:check": "prettier --check .",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest",
     "test:run": "vitest run --coverage",
-    "check": "npm run lint && npm run typecheck && npm run test:run && npm run build",
-    "test:e2e": "playwright test"
+    "check": "npm run lint && npm run typecheck && npm run test:run && npm run build"
   },
   "dependencies": {
     "next": "16.3.3",
-    "react": "19.2.4",
+    "react": "19.2.8",
     "react-dom": "19.2.8",
     "serwist": "^9.5.12"
   },
