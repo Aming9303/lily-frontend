@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
-import { SiteHeader } from '../site-header';
-import { SectionNav } from '../section-nav';
+import { SiteHeader } from "../site-header";
+import { SectionNav } from "../section-nav";
+import type { RouteScaffold } from "@/types/site";
 
 vi.mock('next/navigation', () => ({
   usePathname: vi.fn(),
@@ -38,13 +39,12 @@ describe('Active route indication (Issue #119)', () => {
     });
   });
 
-  describe('SectionNav', () => {
-    const routes = [
-      { id: 'home', title: 'Home', path: '/' },
-      { id: 'docs', title: 'Docs', path: '/docs' },
-      { id: 'agents', title: 'Agents Registry', path: '/app/agents' },
-      { id: 'agent-detail', title: 'Agent Detail', path: '/app/agents/[id]' },
-    ] as const;
+  describe("SectionNav", () => {
+    const routes: readonly RouteScaffold[] = [
+      { id: "home", title: "Home", path: "/", section: "marketing", purpose: "Home", figmaScope: "", implementationAreas: [] },
+      { id: "docs", title: "Docs", path: "/docs", section: "docs", purpose: "Docs", figmaScope: "", implementationAreas: [] },
+      { id: "agent-detail", title: "Agent Detail", path: "/app/agents/[id]", section: "dashboard", purpose: "Detail", figmaScope: "", implementationAreas: [] },
+    ];
 
     it('applies aria-current to exact match', () => {
       mockUsePathname.mockReturnValue('/docs');
@@ -60,8 +60,16 @@ describe('Active route indication (Issue #119)', () => {
       expect(docsLink).toHaveAttribute('aria-current', 'page');
     });
 
-    it('marks the agents registry active on an agent detail path', () => {
-      mockUsePathname.mockReturnValue('/app/agents/agentlily_demo_001');
+    it("marks the agents registry nav link active when viewing an agent detail page", () => {
+      mockUsePathname.mockReturnValue("/app/agents/abc123");
+      render(<SectionNav routes={routes} />);
+      const agentsLink = screen.getByRole("link", { name: /agents registry/i });
+      expect(agentsLink).toHaveAttribute("aria-current", "page");
+      expect(agentsLink.className).toContain("border-[var(--color-accent)]");
+    });
+
+    it("does not apply aria-current to non-matching routes", () => {
+      mockUsePathname.mockReturnValue("/about");
       render(<SectionNav routes={routes} />);
       const agentsLink = screen.getByRole('link', {
         name: /agents registry/i,
