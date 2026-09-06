@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
-import { routes, siteConfig } from '@/config/site';
-import { SURFACE_THEME_COLOR } from '@/config/viewport';
+import { routes, siteConfig } from "@/config/site";
+import { SURFACE_THEME_COLOR } from "@/config/viewport";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
@@ -9,7 +9,7 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: siteConfig.shortName,
     description: siteConfig.description,
     start_url: routes.home,
-    display: 'standalone',
+    display: "standalone",
     background_color: SURFACE_THEME_COLOR,
     theme_color: SURFACE_THEME_COLOR,
     icons: [
