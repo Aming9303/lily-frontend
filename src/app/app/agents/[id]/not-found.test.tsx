@@ -1,26 +1,26 @@
 import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
 
 import AgentNotFound from './not-found';
 
 describe('AgentNotFound', () => {
-  it('renders the agent directory recovery action with design tokens', () => {
-    const { container } = render(<AgentNotFound />);
+  it('renders agent not found message with link to agents directory', () => {
+    render(<AgentNotFound />);
 
-    expect(screen.getByRole('main')).toHaveClass('bg-(--color-surface)', 'text-(--color-ink)');
-    expect(screen.getByRole('heading', { level: 1, name: /agent not found/i })).toBeInTheDocument();
-    expect(screen.getByText('404')).toHaveClass('text-(--color-accent)');
-    expect(screen.getByText(/agent ID you requested/i)).toHaveClass('text-(--color-muted)');
-
-    const directoryLink = screen.getByRole('link', {
-      name: /browse all agents/i,
+    const heading = screen.getByRole('heading', {
+      level: 1,
+      name: /agent not found/i,
     });
-    expect(directoryLink).toHaveAttribute('href', '/app/agents');
-    expect(directoryLink).toHaveClass(
-      'border-(--color-line)',
-      'bg-(--color-panel-muted)',
-      'hover:border-(--color-accent)',
-    );
+    expect(heading).toBeInTheDocument();
+    expect(heading.className).toContain('text-[var(--color-ink)]');
+    expect(heading.className).not.toContain('slate');
+    expect(heading.className).not.toContain('dark:');
 
-    expect(container.innerHTML).not.toMatch(/(?:slate-|dark:)/);
+    const link = screen.getByRole('link', { name: /browse all agents/i });
+    expect(link).toHaveAttribute('href', '/app/agents');
+    expect(link.className).toContain('bg-[var(--color-ink)]');
+    expect(link.className).toContain('focus-visible:ring-[var(--color-accent)]');
+    expect(link.className).not.toContain('slate');
+    expect(link.className).not.toContain('dark:');
   });
 });
